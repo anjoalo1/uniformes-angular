@@ -1,0 +1,101 @@
+<p>cotizacion works!</p>
+
+
+
+<form class="container-form" [formGroup]="miFormulario" (ngSubmit)="addPerson(miFormulario)">
+       
+    <div class="agrupados">
+         <!-- <div class="separete-v">
+             <label for="textSeccion">seccion</label>
+             <input type="text" name="textSeccion" formControlName="seccion">
+         </div> -->
+
+         
+         <div class="separete-v">
+             <label for="selectEtiqueta">Etiqueta</label>
+             <select name="selectEtiqueta"  formControlName="tipoUniforme">
+                 <option *ngFor ="let cont of tipoUniformes" value={{cont.tipo}} >{{cont.tipo}}</option>
+                </select>
+            </div>
+
+
+            <div class="agrupados" *ngIf="miFormulario.get('tipoUniforme')?.value=='diario'">
+                <div>
+                    <label for="prenda">Prenda</label>
+                    <select name="prenda"  formControlName="prenda">
+                        <option *ngFor ="let cont of tipoPrenda" value={{cont.prenda}} >{{cont.prenda}}</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div>
+                <label for="talla">Talla</label>
+                <select name="prenda"  formControlName="talla">
+                    <option *ngFor ="let cont of talla" value={{cont.talla}} >{{cont.talla}}</option>
+                   </select>
+
+            </div>
+            
+            <div>
+                <label for="cantidad">Cantidad</label>
+                <select name="cantidad"  formControlName="cantidad">
+                    <option *ngFor ="let cont of cantidad" value={{cont.cantidad}} >{{cont.cantidad}}</option>
+                   </select>
+
+            </div>
+
+
+
+          <div>
+            <label for="seleccionado">seleccion</label>
+            <select name="seleccionado" formControlName="seleccionado">
+                <option value={{contador.prenda}} *ngFor="let contador of tipoPrenda">{{contador.prenda}}</option>
+            </select>
+          </div>
+
+
+          <select (change)="seleccionarOpcion($event)">
+            <option value={{seleccion.prenda}} *ngFor="let seleccion of tipoPrenda">{{seleccion.prenda}}</option>
+            
+          </select>
+
+          <select>
+            <option value={{seleccion.talla}} *ngFor="let seleccion of arrayCargarUnicamente">{{seleccion.talla}}</option>
+          </select>
+          
+        
+            <!-- 
+            
+         <div class="separete-v">
+             <label for="textclase">clase</label>
+             <select name="textclase" formControlName="clase">
+                 <option *ngFor ="let cont of clasesCss" value={{cont.clase}} >{{cont.clase}}</option>
+             </select>
+         </div>
+    </div>
+    
+
+     <div class="agrupados" *ngIf="miFormulario.get('etiqueta')?.value=='img'">
+         <label for="textUrl">url</label>
+         <input type="text" name="textUrl" formControlName="url">
+     </div>
+    
+    
+     <div class="separete-v">
+         <label for="textContenido">contenido</label>
+         <textarea name="textContenido" cols="100" rows="10" formControlName="contenido"></textarea>
+     </div>
+   
+
+     <div class="agrupados" *ngIf="miFormulario.get('etiqueta')?.value=='Code'">
+         <label for="textCodigo">codigo</label>
+         <textarea name="textCodigo" cols="100" rows="6" formControlName="codigo"></textarea>
+     </div>
+         <div class="separete-v">
+         </div>
+        -->
+        <input class="boton-enviar" type="submit" value="construir" > 
+
+     </div>
+ </form>

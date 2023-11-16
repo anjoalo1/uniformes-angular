@@ -1,0 +1,47 @@
+<p>nuevacotizacion works!</p>
+
+
+<form class="container-form" [formGroup]="miFormulario" (ngSubmit)="addPerson(miFormulario)">
+  
+  <select (change)="seleccionarOpcion($event)" formControlName="tipoPrenda">
+    <option value={{seleccion.prenda}} *ngFor="let seleccion of tipoPrenda">{{seleccion.prenda}}</option>
+  </select>
+  
+  <select formControlName="tallaPrenda">
+    <option  value={{seleccion.talla}} *ngFor="let seleccion of arrayCargarUnicamente">{{seleccion.talla}}</option>
+  </select>
+
+  <input type="number" value="1" placeholder="1" formControlName="cantidadPrenda">
+
+
+  <input class="boton-enviar" type="submit" value="construir" > 
+  
+</form>
+
+<div>
+<!--   <p *ngFor="let mi of this.shoppingCar">{{mi.prenda}} {{mi.talla}} {{mi.precio}}</p> -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tipo prenda</th>
+        <th>Talla</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let mi of this.shoppingCar">
+        <td>{{mi.prenda}}</td>
+        <td>{{mi.talla}}</td>
+        <td>{{mi.precio}}</td>
+        <td>{{mi.cantidad}}</td>
+        <td>{{mi.total}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+  <p>{{this.Total}}</p>
+</div>
