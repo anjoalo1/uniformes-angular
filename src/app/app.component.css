@@ -1,0 +1,41 @@
+body{
+    background-color: #42414d;
+}
+
+.header{
+    background-color: #42414d;
+    padding: 20px 0;
+
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    background-color: #42414d;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 0;
+
+
+}
+
+li>a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    background-color: #42414d;
+}
+
+@media screen and  (max-width: 500px ) {
+
+    ul{
+        display: flex;
+        list-style: none;
+        background-color: #42414d;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}

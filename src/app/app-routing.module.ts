@@ -5,9 +5,10 @@ import { CotizacionComponent } from './cotizacion/cotizacion.component';
 import { NuevacotizacionComponent } from './componentes/nuevacotizacion/nuevacotizacion.component';
 
 const routes: Routes = [
-  { path: 'first-component', component: AppComponent },
+  { path: '', component: AppComponent },
   { path: 'cotizacion', component: CotizacionComponent },
-  {path: 'nuevacotizacion', component: NuevacotizacionComponent}
+  {path: 'nuevacotizacion', component: NuevacotizacionComponent},
+  { path: '',   redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

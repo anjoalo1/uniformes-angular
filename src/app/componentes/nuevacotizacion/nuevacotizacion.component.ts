@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule  } from '@angular/forms';
 
 @Component({
   selector: 'app-nuevacotizacion',
@@ -8,6 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NuevacotizacionComponent {
 
+  constructor(){
+    
+  }
+
 
 
   shoppingCar:any[]=[];
@@ -15,20 +19,17 @@ export class NuevacotizacionComponent {
   producto:any={};
   Total:number=0;
 
+
+ 
+
   miFormulario = new FormGroup({
-   /*  tipoUniforme: new FormControl(''),
-   prenda: new FormControl(''),
-   talla: new FormControl(''),
-   cantidad: new FormControl(''),
-   seleccionado: new FormControl(''), */
-   
-   
      tipoPrenda: new FormControl(''),
-     tallaPrenda: new FormControl(['', [Validators.min(1), Validators.max(50)]]),
-     cantidadPrenda: new FormControl(['', [Validators.min(1), Validators.max(50)]]),
-    
-   
-  })
+     tallaPrenda: new FormControl(['', [Validators.required, Validators.min(6), Validators.max(50)], Validators.required]),
+     cantidadPrenda: new FormControl(['', [ Validators.min(1), Validators.max(50)]])
+  });
+
+
+  validacion:boolean=this.miFormulario.invalid;
 
 
   addPerson(miformulario:any):void{
@@ -88,16 +89,22 @@ export class NuevacotizacionComponent {
 
 
   precios:any[]=[
-    {"prenda":"camibuso", "talla":"6", "precio":18000},
-    {"prenda":"camibuso", "talla":"8", "precio":20000},
-    {"prenda":"camibuso", "talla":"10", "precio":22000},
-    {"prenda":"camibuso", "talla":"12", "precio":24000},
-    {"prenda":"camibuso", "talla":"14", "precio":26000},
-    {"prenda":"camibuso", "talla":"16", "precio":28000},
-    {"prenda":"camibuso", "talla":"m", "precio":30000},
-    {"prenda":"camibuso", "talla":"l", "precio":32000},
+    {"prenda":"camibuso", "talla":"6", "precio":25000},
+    {"prenda":"camibuso", "talla":"8", "precio":26000},
+    {"prenda":"camibuso", "talla":"10", "precio":28000},
+    {"prenda":"camibuso", "talla":"12", "precio":28000},
+    {"prenda":"camibuso", "talla":"14", "precio":30000},
+    {"prenda":"camibuso", "talla":"16", "precio":35000},
+    {"prenda":"camibuso", "talla":"m", "precio":38000},
+    {"prenda":"camibuso", "talla":"l", "precio":40000},
     {"prenda":"chaqueta", "talla":"6", "precio":50000},
-    {"prenda":"chaqueta", "talla":"8", "precio":55000}
+    {"prenda":"chaqueta", "talla":"8", "precio":55000},
+    {"prenda":"chaqueta", "talla":"10", "precio":60000},
+    {"prenda":"chaqueta", "talla":"12", "precio":65000},
+    {"prenda":"chaqueta", "talla":"14", "precio":70000},
+    {"prenda":"chaqueta", "talla":"16", "precio":75000},
+    {"prenda":"chaqueta", "talla":"m", "precio":80000},
+    {"prenda":"chaqueta", "talla":"l", "precio":85000},
   ];
 
 
@@ -107,5 +114,9 @@ export class NuevacotizacionComponent {
     {"prenda":"pantalon"},
     {"prenda":"falda"},   
   ];
-
+  
+  borrarElemento(i:number){
+    this.shoppingCar.splice(i,1);
+    this.sumarTotal();
+  }
 }

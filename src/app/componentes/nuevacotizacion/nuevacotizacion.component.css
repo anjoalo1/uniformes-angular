@@ -1,0 +1,97 @@
+.container{
+    display: flex;
+    gap: 25px;
+    margin-bottom: 10px;
+    background-color: rgb(7, 45, 78);
+    color: white;
+}
+
+.container-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items:start;
+
+}
+
+form{
+    padding: 10px 0 0 10px;
+}
+
+.number{
+    background-color: rgb(254, 254, 254);
+    margin: 20px;
+    width: 50px;
+    height: 15px;
+    border-radius: 10px solid;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+select{
+    background-color: rgb(99, 160, 220);
+    font-size: 1rem;
+    padding: 5px;
+    width: 100px;
+    margin: 20px;
+}
+
+select>option{
+    border-bottom-color: grey 2px solid;
+    text-transform: uppercase;
+    border: 5px solid red;
+}
+
+
+select>option:hover{
+    background-color: white;
+}
+
+input[type="submit"]{
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.5s;
+}
+
+input[type="submit"]:hover{
+    transform: scale(1.1);
+    color: purple;
+    letter-spacing: 3px;
+}
+
+.container-table{
+    width: auto;
+}
+
+.title-h2>span{
+    color: red;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* estilos tabla */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 15px 15px 20px rgba(207, 201, 201, 0.5);
+  }
+
+  tr th{
+    background-color: rgb(251, 251, 253);
+  }
+
+  th, td {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 8px;
+  }

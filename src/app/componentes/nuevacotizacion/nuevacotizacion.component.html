@@ -1,47 +1,62 @@
-<p>nuevacotizacion works!</p>
 
 
-<form class="container-form" [formGroup]="miFormulario" (ngSubmit)="addPerson(miFormulario)">
+<div class="container">
+
   
-  <select (change)="seleccionarOpcion($event)" formControlName="tipoPrenda">
-    <option value={{seleccion.prenda}} *ngFor="let seleccion of tipoPrenda">{{seleccion.prenda}}</option>
-  </select>
-  
-  <select formControlName="tallaPrenda">
-    <option  value={{seleccion.talla}} *ngFor="let seleccion of arrayCargarUnicamente">{{seleccion.talla}}</option>
-  </select>
+  <form class="container-form" [formGroup]="miFormulario">
 
-  <input type="number" value="1" placeholder="1" formControlName="cantidadPrenda">
-
-
-  <input class="boton-enviar" type="submit" value="construir" > 
-  
-</form>
+      
+        <select (change)="seleccionarOpcion($event)" formControlName="tipoPrenda">
+          <option value={{seleccion.prenda}} *ngFor="let seleccion of tipoPrenda">{{seleccion.prenda}}</option>
+        </select>
+        
+        <select formControlName="tallaPrenda">
+          <option  value={{seleccion.talla}} *ngFor="let seleccion of arrayCargarUnicamente">{{seleccion.talla}}</option>
+        </select>
+        
+        <input class="number" type="number"   formControlName="cantidadPrenda">
+     
+      
+      
+      <input class="boton-enviar" type="submit" value="agregar" [disabled]="miFormulario.invalid" (click)="addPerson(miFormulario)"> 
+    </form>
+</div>
 
 <div>
-<!--   <p *ngFor="let mi of this.shoppingCar">{{mi.prenda}} {{mi.talla}} {{mi.precio}}</p> -->
+      <!--   <p *ngFor="let mi of this.shoppingCar">{{mi.prenda}} {{mi.talla}} {{mi.precio}}</p> -->
+     
+      
+      <div class="container-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Tipo P</th>
+              <th>Talla</th>
+              <th>Precio Unt</th>
+              <th>Cantidad</th>
+              <th>Precio T</th>
+              <th>Admin</th>
+            </tr>
+          </thead>
+          <tbody>
+      
+            <tr *ngFor="let mi of this.shoppingCar; index as i">
+              <td>{{i+1}}</td>
+              <td>{{mi.prenda}}</td>
+              <td>{{mi.talla}}</td>
+              <td>{{mi.precio}}</td>
+              <td>{{mi.cantidad}}</td>
+              <td>${{mi.total}}</td>
+              <td><input type="button" placeholder="eliminar" value="eliminar" (click)="borrarElemento(i)"></td>
+            </tr>
+      
+          </tbody>
+        </table>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Tipo prenda</th>
-        <th>Talla</th>
-        <th>Precio</th>
-        <th>Cantidad</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
+        <div>
+          <h2 class="title-h2">Total: <span>${{Total}}</span></h2>
+        </div>
+      </div>
 
-      <tr *ngFor="let mi of this.shoppingCar">
-        <td>{{mi.prenda}}</td>
-        <td>{{mi.talla}}</td>
-        <td>{{mi.precio}}</td>
-        <td>{{mi.cantidad}}</td>
-        <td>{{mi.total}}</td>
-      </tr>
-
-    </tbody>
-  </table>
-  <p>{{this.Total}}</p>
 </div>
