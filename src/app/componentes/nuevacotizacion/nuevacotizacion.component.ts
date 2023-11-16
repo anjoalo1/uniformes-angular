@@ -89,11 +89,11 @@ export class NuevacotizacionComponent {
 
 
   precios:any[]=[
-    {"prenda":"camibuso", "talla":"6", "precio":25000},
+    {"prenda":"camibuso", "talla":"6", "precio":26000},
     {"prenda":"camibuso", "talla":"8", "precio":26000},
     {"prenda":"camibuso", "talla":"10", "precio":28000},
-    {"prenda":"camibuso", "talla":"12", "precio":28000},
-    {"prenda":"camibuso", "talla":"14", "precio":30000},
+    {"prenda":"camibuso", "talla":"12", "precio":30000},
+    {"prenda":"camibuso", "talla":"14", "precio":32000},
     {"prenda":"camibuso", "talla":"16", "precio":35000},
     {"prenda":"camibuso", "talla":"m", "precio":38000},
     {"prenda":"camibuso", "talla":"l", "precio":40000},
