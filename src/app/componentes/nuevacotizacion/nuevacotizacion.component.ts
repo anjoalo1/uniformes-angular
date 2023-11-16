@@ -88,6 +88,18 @@ export class NuevacotizacionComponent {
   arrayCargarUnicamente:any[]=[];
 
 
+  tallas:any[]=[
+    {"talla":"6"},
+    {"talla":"8"},
+    {"talla":"10"},
+    {"talla":"12"},
+    {"talla":"14"},
+    {"talla":"16"},
+    {"talla":"m"},
+    {"talla":"l"},
+  ];
+
+
   precios:any[]=[
     {"prenda":"camibuso", "talla":"6", "precio":26000},
     {"prenda":"camibuso", "talla":"8", "precio":26000},

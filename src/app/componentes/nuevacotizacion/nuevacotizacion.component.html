@@ -11,7 +11,7 @@
         </select>
         
         <select formControlName="tallaPrenda">
-          <option  value={{seleccion.talla}} *ngFor="let seleccion of arrayCargarUnicamente">{{seleccion.talla}}</option>
+          <option  value={{seleccion.talla}} *ngFor="let seleccion of tallas">{{seleccion.talla}}</option>
         </select>
         
         <input class="number" type="number"   formControlName="cantidadPrenda">
@@ -34,7 +34,7 @@
               <th>Tipo P</th>
               <th>Talla</th>
               <th>Precio Unt</th>
-              <th>Cantidad</th>
+              <th>Cant</th>
               <th>Precio T</th>
               <th>Admin</th>
             </tr>
