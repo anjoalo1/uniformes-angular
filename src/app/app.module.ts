@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { CotizacionComponent } from './cotizacion/cotizacion.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NuevacotizacionComponent } from './componentes/nuevacotizacion/nuevacotizacion.component';
+import { CreatorpdfComponent } from './componentes/creatorpdf/creatorpdf.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CotizacionComponent,
-    NuevacotizacionComponent
+    NuevacotizacionComponent,
+    CreatorpdfComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+  
+
   ],
   providers: [],
   bootstrap: [AppComponent]

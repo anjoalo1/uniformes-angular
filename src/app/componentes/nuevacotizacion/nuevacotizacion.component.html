@@ -32,11 +32,11 @@
             <tr>
               <th>Id</th>
               <th>Tipo P</th>
-              <th>Talla</th>
+              <th>T</th>
               <th>Precio Unt</th>
               <th>Cant</th>
               <th>Precio T</th>
-              <th>Admin</th>
+              <th>Eli</th>
             </tr>
           </thead>
           <tbody>
@@ -48,7 +48,7 @@
               <td>{{mi.precio}}</td>
               <td>{{mi.cantidad}}</td>
               <td>${{mi.total}}</td>
-              <td><input type="button" placeholder="eliminar" value="eliminar" (click)="borrarElemento(i)"></td>
+              <td><input type="button" placeholder="eliminar" value="borrar" (click)="borrarElemento(i)"></td>
             </tr>
       
           </tbody>
@@ -57,6 +57,10 @@
         <div>
           <h2 class="title-h2">Total: <span>${{Total}}</span></h2>
         </div>
+      </div>
+
+      <div>
+        <button (click)="generarPDF()">create pdf</button>
       </div>
 
 </div>

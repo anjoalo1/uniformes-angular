@@ -1,21 +1,18 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule  } from '@angular/forms';
-
-import * as pdfMake from 'pdfmake/build/pdfmake';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
+
+
+
 @Component({
-  selector: 'app-nuevacotizacion',
-  templateUrl: './nuevacotizacion.component.html',
-  styleUrls: ['./nuevacotizacion.component.css']
+  selector: 'app-creatorpdf',
+  templateUrl: './creatorpdf.component.html',
+  styleUrls: ['./creatorpdf.component.css']
 })
-export class NuevacotizacionComponent {
-
-  constructor(){
-    
-  }
-
+export class CreatorpdfComponent {
 
 
   shoppingCar:any[]=[];
@@ -24,12 +21,16 @@ export class NuevacotizacionComponent {
   Total:number=0;
 
 
- 
+ miFormularioCliente = new FormGroup({
+  nombre: new FormControl('',[Validators.required]),
+  identificacion: new FormControl('',[Validators.required, Validators.pattern(/^[0-9]+$/)]),
+  
+ })
 
   miFormulario = new FormGroup({
-     tipoPrenda: new FormControl(''),
-     tallaPrenda: new FormControl(['', [Validators.required, Validators.min(6), Validators.max(50)], Validators.required]),
-     cantidadPrenda: new FormControl(['', [ Validators.min(1), Validators.max(50)]])
+     tipoPrenda: new FormControl('',[Validators.required]),
+     tallaPrenda: new FormControl('', [Validators.required, Validators.min(6), Validators.max(50)]),
+     cantidadPrenda: new FormControl('', [ Validators.min(1), Validators.max(50)])
   });
 
 
@@ -139,8 +140,14 @@ export class NuevacotizacionComponent {
   /************************************* */
   /************************************* */
   /************************************* */
+
+
+  
+
   generarPDF() {
     // Definir la estructura de la tabla
+
+   
     const columnas = ['id','Cantidad', 'Precio Unitario', 'Prenda', 'Talla', 'Total'];
     const filas:any []= [];
   
@@ -158,9 +165,10 @@ export class NuevacotizacionComponent {
   
     // Configurar la definición del documento PDF
     const docDefinition:any = {
-      
+      watermark: { text: 'CANCELADO', absolutePosition: { x: 0, y: 0 },  margin: [0, 0, 0, 0], color: 'red', opacity: 0.3, fontSize: 40},
 
       content: [
+        
         { text: 'Factura de venta', style: 'header' },
         {text: fechaFormateada},
         {
@@ -171,6 +179,8 @@ export class NuevacotizacionComponent {
           },
         },
         {text: 'Total: $ ' + this.Total, style:'total'},
+
+       
       ],
       styles: {
         header: {
@@ -217,7 +227,5 @@ export class NuevacotizacionComponent {
   
     return `${fechaFormateada} ${horaFormateada}`;
   }
-
-
 
 }
