@@ -81,15 +81,37 @@ input[type="submit"]:hover{
 
 /* estilos tabla */
 
+.title-h2{
+    text-align: right;
+    font-size: 2rem;
+    margin: 5px 0;
+}
+
+.title-h2>span{
+    text-align: right;
+    color: red;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* estilos tabla */
+
 table {
     table-layout: auto;
     border-collapse: collapse;
     width: 100%;
-    box-shadow: 15px 15px 20px rgba(207, 201, 201, 0.5);
+    box-shadow: 5px 5px 5px rgba(207, 201, 201, 0.5);
   }
 
   tr th{
-    background-color: rgb(251, 251, 253);
+    background-color: rgb(228, 68, 68);
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  tr>td{
+    font-size: 1.5rem;
+    text-align: center;
   }
 
   th, td {
@@ -100,3 +122,12 @@ table {
   tr:nth-child(2n + 1){
     background: rgb(227, 221, 221);
 }
+
+.button-add-remove{
+    display: flex;
+    justify-content: center;
+  }
+
+  .button-add-remove>*{
+    margin-left: 5px;
+  }

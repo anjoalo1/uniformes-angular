@@ -23,12 +23,9 @@ export class NuevacotizacionComponent {
   
   miRadioButton: string ="";
   fechaActual:string="";
-  
   shoppingCar:any[]=[];
-  
   producto:any={};
   Total:number=0;
-  
   arrayCargarUnicamente:any[]=[];
   tallas = tallas;
   precios = precios;
@@ -73,34 +70,13 @@ export class NuevacotizacionComponent {
      cantidadPrenda: new FormControl('', [ Validators.min(1), Validators.max(50)])
   });
 
-
-  validacion:boolean=this.miFormulario.invalid;
-
-
-  addPerson(miformulario:any):void{
-    const pasarVariable = miformulario.value;
-
-  
-
-    this.producto={};
-    this.producto = {...this.precios.find((p:any) => p.prenda === miformulario.value.tipoPrenda && p.talla === miformulario.value.tallaPrenda)};
-
-    console.log(this.producto);
-    let precioTotal =this.producto.precio*miformulario.value.cantidadPrenda;
-    this.producto.total = precioTotal;
-    this.producto.cantidad = miformulario.value.cantidadPrenda;
-    this.shoppingCar.push(this.producto);
-    this.sumarTotal();
-  console.log(this.shoppingCar);
-  }
-
+ 
 
   sumarTotal(){
     const sumaPrecios: number = this.shoppingCar.reduce((acumulador, producto) => {
       return acumulador + producto.total;
     }, 0);
 
-    console.log(sumaPrecios);
     this.Total = sumaPrecios;
   }
 
@@ -109,9 +85,6 @@ export class NuevacotizacionComponent {
 
     console.log(pasarVariable.value);
     
-   /*  let producto = this.precios.find((p:any) => p.prenda === formulario.value.tipoPrenda && p.talla === formulario.value.tallaPrenda)
-    let precioTotal =this.producto.precio*formulario.value.cantidadPrenda;
-    return producto; */
   }
 
 
@@ -124,11 +97,7 @@ export class NuevacotizacionComponent {
     
   }
   
-  
 
-
-
-  
   borrarElemento(i:number){
     this.shoppingCar.splice(i,1);
     this.sumarTotal();
@@ -187,10 +156,10 @@ export class NuevacotizacionComponent {
               text: fechaFormateada},
             {
               with:120,
-              text:`Cliente: ${this.datosCliente.value.firstName?.toUpperCase()}  ${this.datosCliente.value.lastName?.toUpperCase()}     Identificación: ${this.datosCliente.value.identification}`
+              text:`Cliente: ${this.datosCliente.value.firstName?.toUpperCase()}  ${this.datosCliente.value.lastName?.toUpperCase()} \nIdentificación: ${this.datosCliente.value.identification}`
             }
           ]
-        },'\n\n',
+        },'\n',
     
         {
           table: {
@@ -248,7 +217,4 @@ export class NuevacotizacionComponent {
   
     return `${fechaFormateada} ${horaFormateada}`;
   }
-
-
-
 }

@@ -17,6 +17,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     CotizacionComponent,
     NuevacotizacionComponent,
-    CreatorpdfComponent
+    CreatorpdfComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

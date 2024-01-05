@@ -1,0 +1,51 @@
+img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container{
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+
+}
+.container>*{
+    padding: 20px;
+}
+
+.title-h1{
+    font-size: 4rem;
+    line-height: normal;
+    color: rgb(195, 51, 51);
+}
+
+.parrafo{
+    font-size: 2rem;
+    line-height: normal;
+}
+
+@media screen and  (max-width: 500px ) {
+
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+
+    }
+
+    .title-h1{
+        font-size: 2rem;
+        line-height: normal;
+        color: rgb(195, 51, 51);
+    }
+    
+    .parrafo{
+        font-size: 1.5rem;
+        line-height: normal;
+    }
+    
+}
+

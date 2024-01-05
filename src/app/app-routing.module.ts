@@ -4,14 +4,13 @@ import { AppComponent } from './app.component';
 import { CotizacionComponent } from './cotizacion/cotizacion.component';
 import { NuevacotizacionComponent } from './componentes/nuevacotizacion/nuevacotizacion.component';
 import { CreatorpdfComponent } from './componentes/creatorpdf/creatorpdf.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: HomeComponent},
   { path: 'cotizacion', component: CotizacionComponent },
   {path: 'nuevacotizacion', component: NuevacotizacionComponent},
-  {path: 'creatorpdf', component: CreatorpdfComponent},
-  { path: '',   redirectTo: '', pathMatch: 'full' },
-  {path:'**', redirectTo:''}
+  {path: 'creatorpdf', component: CreatorpdfComponent}
 ];
 
 @NgModule({
