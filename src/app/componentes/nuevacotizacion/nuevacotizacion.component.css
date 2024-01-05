@@ -100,3 +100,18 @@ table {
   tr:nth-child(2n + 1){
     background: rgb(227, 221, 221);
 }
+
+
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+
+
+  .button-add-remove{
+    display: flex;
+    justify-content: center;
+  }
+
+  .button-add-remove>*{
+    margin-left: 5px;
+  }

@@ -1,42 +1,58 @@
 
 
+<form [formGroup]="miformulario2">
+  <mat-radio-group name="gender" [(ngModel)]="miRadioButton" formControlName="gender">
+    <mat-radio-button color="accent" value="male" checked="true">Hombre</mat-radio-button>
+    <mat-radio-button color="primary" value="female">Mujer</mat-radio-button>
+  </mat-radio-group>
+
+
+
+  <mat-form-field>
+  <mat-label>Seleccione Talla</mat-label>
+  <mat-select formControlName="tallaPrenda">
+    <mat-option *ngFor="let seleccion of tallas" [value]="seleccion.talla">
+      {{seleccion.talla}}
+    </mat-option>
+  </mat-select>
+  </mat-form-field>
+
+  
+      <button mat-raised-button color="primary" (click)="cargarSelect(miformulario2)" [disabled]="miformulario2.invalid">Mostrar Precios</button>
+  
+  
+
+</form>
+
+
+
+
+
+    <!-- datos cliente div  -->
+   
 <div class="container">
 
   
-  <form class="container-form" [formGroup]="miFormulario">
 
-      
-        <select (change)="seleccionarOpcion($event)" formControlName="tipoPrenda">
-          <option value={{seleccion.prenda}} *ngFor="let seleccion of tipoPrenda">{{seleccion.prenda}}</option>
-        </select>
-        
-        <select formControlName="tallaPrenda">
-          <option  value={{seleccion.talla}} *ngFor="let seleccion of tallas">{{seleccion.talla}}</option>
-        </select>
-        
-        <input class="number" type="number"   formControlName="cantidadPrenda">
-     
-      
-      
-      <input class="boton-enviar" type="submit" value="agregar" [disabled]="miFormulario.invalid" (click)="addPerson(miFormulario)"> 
-    </form>
+
+
 </div>
 
 <div>
       <!--   <p *ngFor="let mi of this.shoppingCar">{{mi.prenda}} {{mi.talla}} {{mi.precio}}</p> -->
      
       
-      <div class="container-table">
+      <div  class="container-table" *ngIf="this.Total>0">
         <table>
           <thead>
             <tr>
               <th>Id</th>
-              <th>Tipo P</th>
-              <th>T</th>
-              <th>Precio Unt</th>
-              <th>Cant</th>
-              <th>Precio T</th>
-              <th>Eli</th>
+              <th>Tipo Prenda</th>
+              <th>Talla</th>
+              <th>Precio Unidad</th>
+              <th>Cantidad</th>
+              <th>Precio Total</th>
+              <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -46,9 +62,13 @@
               <td>{{mi.prenda}}</td>
               <td>{{mi.talla}}</td>
               <td>{{mi.precio}}</td>
-              <td>{{mi.cantidad}}</td>
+              <td class="button-add-remove">
+                <div>{{mi.cantidad}}</div>
+                <div><mat-icon color="primary" (click)="aumentar(i)">add_circle</mat-icon></div>
+                <div><mat-icon color="accent"  (click)="disminuir(i)">remove_circle</mat-icon></div>
+              </td>
               <td>${{mi.total}}</td>
-              <td><input type="button" placeholder="eliminar" value="borrar" (click)="borrarElemento(i)"></td>
+              <td><mat-icon color="accent" (click)="borrarElemento(i)">delete</mat-icon></td>
             </tr>
       
           </tbody>
@@ -59,8 +79,41 @@
         </div>
       </div>
 
-      <div>
-        <button (click)="generarPDF()">create pdf</button>
+      <div *ngIf="Total>0">
+
+        <mat-radio-group name="gender" [(ngModel)]="favoriteSeason" >
+          <mat-radio-button color="accent" value="true" checked="true">Crear factura</mat-radio-button>
+          <mat-radio-button color="primary" value="false">no</mat-radio-button>
+        </mat-radio-group>
+        
       </div>
+
+      <div *ngIf="favoriteSeason=='true'">
+        <form [formGroup]="datosCliente">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Ingresar nombre" formControlName="firstName">
+          </mat-form-field>
+  
+  
+          <mat-form-field class="example-full-width">
+            <mat-label>Apellido</mat-label>
+            <input matInput placeholder="Ingresar apellido" formControlName="lastName">
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <mat-label>Cedula</mat-label>
+            <input type="number" matInput placeholder="Ingresar Cedula" formControlName="identification">
+          </mat-form-field>  
+        </form>
+        <div>
+          <button mat-raised-button color="accent" (click)="generarPDF()" [disabled]="datosCliente.invalid">Create pdf</button>
+        </div>
+      </div>
+
+      
+
+
+   
 
 </div>

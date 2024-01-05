@@ -11,6 +11,7 @@ const routes: Routes = [
   {path: 'nuevacotizacion', component: NuevacotizacionComponent},
   {path: 'creatorpdf', component: CreatorpdfComponent},
   { path: '',   redirectTo: '', pathMatch: 'full' },
+  {path:'**', redirectTo:''}
 ];
 
 @NgModule({
