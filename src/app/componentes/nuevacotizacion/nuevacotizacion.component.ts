@@ -142,8 +142,7 @@ export class NuevacotizacionComponent {
   
     // Configurar la definición del documento PDF
     const docDefinition:any = {
-      watermark: { text: 'CANCELADO', absolutePosition: { x: 0, y: 0 },  margin: [0, 0, 0, 0], color: 'red', opacity: 0.3, fontSize: 40},
-
+    
       content: [
         { text: 'Factura de venta', style: 'header' },
      
